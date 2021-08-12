@@ -5,10 +5,7 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import CloseIcon from '@material-ui/icons/Close';
 import {useSelector} from 'react-redux'
-
-import {
-    Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function Header() {
     const [search, setSearch] = useState<any>()
@@ -62,11 +59,12 @@ function Header() {
                     <OptionLineTwo>& Orders</OptionLineTwo>
                 </HeaderOption>
 
-                
-                <HeaderOptionCart>
-                        <ShoppingBasketIcon/>
-                        <CartCount>{newArray.length}</CartCount>
-                </HeaderOptionCart>
+                <Link to="/cart">
+                    <HeaderOptionCart>
+                            <ShoppingBasketIcon/>
+                            <CartCount>{newArray.length}</CartCount>
+                    </HeaderOptionCart>
+                </Link>
             </HeaderNavItems>
         </Container>
     )
@@ -157,6 +155,7 @@ const HeaderNavItems = styled.div`
 const HeaderOptionCart = styled.div`
     display: flex;
     margin-top: 15px;
+    color: white;
     a {
         display: flex;
         align-items: center;

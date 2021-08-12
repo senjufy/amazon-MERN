@@ -1,4 +1,4 @@
-import {ADD_CART, ADD_ITEM, ADD_SEARCH_ITEM} from "./action"
+import {ADD_CART, ADD_ITEM, ADD_SEARCH_ITEM, EMPTY_CART, REMOVE_CART_ITEM} from "./action"
 import {items, cartItems, searchItems} from "./state"
 
 export let reducer = (state = items, action : any) => {
@@ -13,12 +13,19 @@ export let reducer = (state = items, action : any) => {
 }
 
 export let cartReducer = (state = cartItems, action : any) => {
-    let cartItem;
+    let cartItem : any;
     switch(action.type) {
         case ADD_CART: 
-        cartItem = [...state]
-        cartItem.push(action.payload)
-        return cartItem
+            cartItem = [...state]
+            cartItem.push(action.payload)
+            return cartItem
+        case REMOVE_CART_ITEM: 
+            cartItem = [...state]
+            cartItem = cartItem.filter((product : any) => product.name != action.payload)
+            return cartItem
+        case EMPTY_CART: 
+            cartItem = []
+            return cartItem
     }
     return state
 }

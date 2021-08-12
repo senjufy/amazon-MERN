@@ -17,13 +17,15 @@ function Home() {
         await axios.get(url).then((res : any) => {
             setData(res.data.products)
         })
-        data. map ((value : any) => (
-            dispatch(addItem({
-                name: value.name,
-                url : value.url,
-                price : value.price,
-            }))
-        ))
+        if(items.length < 21) {
+            data. map ((value : any) => (
+                dispatch(addItem({
+                    name: value.name,
+                    url : value.url,
+                    price : value.price,
+                }))
+            ))
+        }
         
     }
 

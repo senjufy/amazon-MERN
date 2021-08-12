@@ -24,13 +24,16 @@ function SearchRes({ match } : RouteComponentProps<TParams>) {
             setSearch(res.data.products)
         })
 
-        search.map ((value : any) => (
-            dispatch(addSearchItem({
-                name: value.name,
-                url : value.url,
-                price : value.price,
-            }))
-        ))
+        if(items.length < 21) {
+            search.map ((value : any) => (
+                dispatch(addSearchItem({
+                    name: value.name,
+                    url : value.url,
+                    price : value.price,
+                }))
+            ))
+        }
+        
     }
 
     useEffect(() => {

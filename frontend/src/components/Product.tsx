@@ -15,6 +15,8 @@ function Product({name, url, price} : Props) {
     function addToCart() {
         dispatch(addCart({
             name: name,
+            price: price,
+            url: url
         }))
     }
 

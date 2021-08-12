@@ -41,7 +41,11 @@ _Run the server or start the application_
 
 ## Preview
 
-Coming Soon...
+![Home](./frontend/public/Home.png)
+
+![Cart](./frontend/public/Cart.png)
+
+![Cart](./frontend/public/CheckOut.png)
 
 ---
 
