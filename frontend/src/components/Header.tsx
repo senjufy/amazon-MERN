@@ -4,14 +4,16 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import CloseIcon from '@material-ui/icons/Close';
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {Link} from "react-router-dom";
+import { emptySearchItem } from "../redux/action";
 
 function Header() {
     const [search, setSearch] = useState<any>()
     const [show, setShow] = useState<boolean>(false)
     let items = useSelector((state : any) => state.cartReducer)
     var newArray = items.filter((value : any) => Object.keys(value).length !== 0);
+    let dispatch = useDispatch()
 
     const handleChange = (e : any) => {
         setSearch(e.target.value)
@@ -20,6 +22,7 @@ function Header() {
     function onClose() {
         setSearch("")
         setShow(false)
+        dispatch(emptySearchItem())
     }
 
     return (

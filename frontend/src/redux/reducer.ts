@@ -1,4 +1,4 @@
-import {ADD_CART, ADD_ITEM, ADD_SEARCH_ITEM, EMPTY_CART, REMOVE_CART_ITEM} from "./action"
+import {ADD_CART, ADD_ITEM, ADD_SEARCH_ITEM, EMPTY_CART, REMOVE_CART_ITEM, EMPTY_SEARCH} from "./action"
 import {items, cartItems, searchItems} from "./state"
 
 export let reducer = (state = items, action : any) => {
@@ -31,11 +31,14 @@ export let cartReducer = (state = cartItems, action : any) => {
 }
 
 export let searchReducer = (state = searchItems, action : any) => {
-    let searchItem;
+    let searchItem : any;
     switch (action.type) {
         case ADD_SEARCH_ITEM:
             searchItem = [...state]
             searchItem.push(action.payload)
+            return searchItem
+        case EMPTY_SEARCH: 
+            searchItem = []
             return searchItem
     }
     return state

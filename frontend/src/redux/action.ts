@@ -1,6 +1,7 @@
 export const ADD_ITEM = 'ADD_ITEM'
 export const ADD_CART = "ADD_CART"
 export const ADD_SEARCH_ITEM = "ADD_SEARCH_ITEM"
+export const EMPTY_SEARCH = "EMPTY_SEARCH"
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM"
 export const EMPTY_CART = "EMPTY_CART"
 
@@ -23,6 +24,12 @@ export function addSearchItem(item : any) {
     return {
         type: ADD_SEARCH_ITEM,
         payload : item,
+    }
+}
+
+export function emptySearchItem() {
+    return {
+        type: EMPTY_SEARCH,
     }
 }
 
